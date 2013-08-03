@@ -22,7 +22,7 @@ This template *is not* meant to be used out of the box. Any email derived from t
 * [Corporate Ipsum](http://cipsum.com/) by Cameron Brister.
 
 ## Demo
-* Download and resize your browser window to see its responsiveness.
+* [Demo](http://tedgoas.github.io/Responsive-Email-XX/)
 
 ## Download, Fork, Commit.
 If you think you can make this better, please Download, Fork, & Commit. I'd love your see your ideas and make this as solid as can be.
