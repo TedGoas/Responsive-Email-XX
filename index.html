@@ -67,14 +67,15 @@
       /* Force <table> cells into rows */
  			td[class="force-col"],
 			td[class="force-col-center"] {
-				display: block;
+				display: block !important;
+				width: 100% !important;
 				padding: 0 !important;
 			}
 
       /* Center images with a bit of vertical spacing */
 			td[class="force-col-center"] img {
-				display: block;
-				text-align: center;
+				display: block !important;
+				text-align: center !important;
 				margin: 20px auto !important;
 			}
 
@@ -125,7 +126,8 @@
 
 			td[class="hh-force-col"],
 			td[class="hh-force-col-center"] {
-				display: block;
+				display: block !important;
+				width: 100% !important;
 				padding-right: 0 !important;
 			}
 			
@@ -167,7 +169,6 @@
 <table border="0" width="100%" height="100%" cellpadding="0" cellspacing="0">
   <tr>
     <td align="center" valign="top">
-
       <!-- Logo + web view : BEGIN -->
       <table border="0" width="680" cellpadding="0" cellspacing="0" class="email-container">
         <tr>
@@ -217,12 +218,12 @@
                   Proactively envisioned multimedia based expertise and cross-media growth strategies. Seamlessly visualize quality intellectual capital without superior collaboration and idea-sharing. Holistically pontificate installed base portals after maintainable products.
                 </td>
               </tr>
-              <!-- Full Width, Fluid Column : BEGIN -->
+              <!-- Full Width, Fluid Column : END -->
               
               <!-- Three Column ==> Stacked Layout : BEGIN -->
               <tr>
                 <td bgcolor="#ffffff" style="background-color: #ffffff; padding: 20px;border-bottom: 1px solid #eee;">
-                  <table border="0" cellpadding="0" cellspacing="0" class="columns-container">
+                  <table border="0" cellpadding="0" cellspacing="0" width="100%">
                     <tr>
                       <td class="force-col" style="padding-right: 20px;" valign="top">
                         <table border="0" cellspacing="0" cellpadding="0" width="200" align="left" class="col-3">
@@ -246,7 +247,7 @@
                           </tr>
                         </table>
                       </td>
-                      <td class="force-col"  valign="top">
+                      <td class="force-col" valign="top">
                         <table border="0" cellspacing="0" cellpadding="0" width="200" align="left" class="col-3" style="border-bottom: 0; padding-bottom: 0;">
                           <tr>
                             <td align="left" valign="top" style="font-family: Segoe,'Segoe UI',Helvetica,Arial,sans-serif; font-size: 14px; color: #444; line-height: 18px;">
@@ -265,7 +266,7 @@
               <!-- Two Column, Right Image ==> Stacked Layout : BEGIN -->
               <tr>
                 <td bgcolor="#ffffff" style="background-color: #ffffff;border-bottom: 1px solid #eee;" class="padding-tablet">
-                  <table cellspacing="0" cellpadding="0" border="0">
+                  <table cellspacing="0" cellpadding="0" border="0" width="100%">
                     <tr>
                       <td class="hide-from-tablet" style="font-size: 0; line-height: 0; width: 20px;">&nbsp;</td>
                       <td valign="top" style="font-family: Segoe,'Segoe UI',Helvetica,Arial,sans-serif; font-size: 14px; line-height: 18px;color: #444;" class="force-col">
@@ -291,19 +292,20 @@
                         <img src="http://placehold.it/200/dddddd/bbbbbb" height="200" width="200" border="0" style="display: block;">
                       </td>
                       <td class="force-col" valign="top">
-                        <table cellpadding="0" cellspacing="0" border="0" style="padding-left: 20px;">
+                        <table cellpadding="0" cellspacing="0" border="0" width="100%" style="padding-left: 20px;">
                           <tr>
                             <td valign="top" style="font-family: Segoe,'Segoe UI',Helvetica,Arial,sans-serif; font-size: 14px; line-height: 18px;color: #444;" class="force-col">
-                              <strong style="font-size: 16px;">Administrate channels</strong>
+                              <br>
+                              <strong style="font-size: 16px;">Visualize Quality</strong>
                               <br><br>
                               Proactively envisioned multimedia based expertise and cross-media growth strategies. Seamlessly visualize quality intellectual capital without superior collaboration and idea-sharing.
                             </td>
-                            </td>
-                            <td valign="top" style="font-family: Segoe,'Segoe UI',Helvetica,Arial,sans-serif; font-size: 12px; line-height: 18px;color: #888;padding-left: 20px;" class="force-col"><br><br>
+                            <td valign="top" style="font-family: Segoe,'Segoe UI',Helvetica,Arial,sans-serif; font-size: 12px; line-height: 18px;color: #888;padding-left: 20px;padding-top: 36px;" class="force-col"><br>
                               <em>Interactively procrastinate high-payoff content without backward-compatible data. Quickly cultivate optimal processes and tactical architectures. Completely iterate covalent strategic theme areas via accurate e-markets.</em>
                             </td>
                           </tr>
                         </table>
+                      </td>
                     </tr>
                   </table>
                 </td>
@@ -353,3 +355,4 @@
 <br>
 </body>
 </html>
+
