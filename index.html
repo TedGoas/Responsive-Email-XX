@@ -1,82 +1,356 @@
-<!doctype html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <title>Responsive-email-xx by TedGoas</title>
+<!-- Visibly hidden text for inbox previews : BEGIN -->
+<!-- Careful! This trick is "gray hat" and might trigger spam filters. Use judiciously. -->
+<div style="font-size: 0; line-height: 0;">
+	This text appears in email's inbox list, but not the actual email.
+</div>
+<!-- Visibly hidden text for inbox previews : BEGIN -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="initial-scale=1.0"> <!-- So that mobile webkit will display zoomed in -->
+  <meta name="format-detection" content="telephone=no"> <!-- disable auto telephone linking in iOS -->
+  <title>Subject Line (for proofing)</title>
+  <style type="text/css">
+		
+		/* Force Hotmail to display emails at full width */
+		.ReadMsgBody {
+			width: 100%;
+			background-color: #eeeeee;
+		}
+		
+		/* Force Hotmail to display emails at full width */
+		.ExternalClass {
+			width: 100%;
+			background-color: #eeeeee;
+		}
+				
+		/* Forces Hotmail to display normal line spacing. */
+		.ExternalClass,
+		.ExternalClass p,
+		.ExternalClass span,
+		.ExternalClass font,
+		.ExternalClass td,
+		.ExternalClass div {
+			line-height:100%;
+		}
+		
+		/* Resolves webkit padding issue. */
+		table {
+			border-spacing:0;
+		}
+		
+		/* Resolves the Outlook 2007, 2010, and Gmail td padding issue. */
+		table td {
+			border-collapse:collapse;
+		}
+		
+		/* Yahoo auto-sensing link color and border */
+		.yshortcuts a {
+			border-bottom: none !important;
+		}
+        
+		@media screen and (max-width: 680px) {
 
-    <link rel="stylesheet" href="stylesheets/styles.css">
-    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-    <!--[if lt IE 9]>
-    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
-  </head>
-  <body>
-    <div class="wrapper">
-      <header>
-        <h1>Responsive-email-xx</h1>
-        <p>A few layout ideas for HTML email that adapt to small screens and respond to breakpoints.</p>
+			/* Constrain email width for small screens */
+			table[class="email-container"] {
+				width: 98% !important;
+			}
 
-        <p class="view"><a href="https://github.com/TedGoas/Responsive-Email-XX">View the Project on GitHub <small>TedGoas/Responsive-Email-XX</small></a></p>
+      /* make images expand to full width of their container */
+			img[class="fluid"] {
+				width: 100% !important;
+				max-width: 100%;
+				height: auto;
+			}
 
+      /* Force <table> cells into rows */
+ 			td[class="force-col"],
+			td[class="force-col-center"] {
+				display: block;
+				padding: 0 !important;
+			}
 
-        <ul>
-          <li><a href="https://github.com/TedGoas/Responsive-Email-XX/zipball/master">Download <strong>ZIP File</strong></a></li>
-          <li><a href="https://github.com/TedGoas/Responsive-Email-XX/tarball/master">Download <strong>TAR Ball</strong></a></li>
-          <li><a href="https://github.com/TedGoas/Responsive-Email-XX">View On <strong>GitHub</strong></a></li>
-        </ul>
-      </header>
-      <section>
-        <h1>
-<a name="responsive-layouts-for-email" class="anchor" href="#responsive-layouts-for-email"><span class="octicon octicon-link"></span></a>Responsive Layouts for Email</h1>
+      /* Center images with a bit of vertical spacing */
+			td[class="force-col-center"] img {
+				display: block;
+				text-align: center;
+				margin: 20px auto !important;
+			}
 
-<p>A few layout ideas for HTML email that adapt to small screens and respond to breakpoints. It also includes a few tricks to a few HTML email gotchas in such as margins in Outlook, auto-detected links in Yahoo, and background images in Outlook.</p>
+      /* Give cells extra padding */
+			td[class="padding-tablet"] {
+				padding: 20px !important;
+			}
 
-<p>This template <em>is not</em> meant to be used out of the box. Any email derived from this code should always be tested.</p>
+      /* unset table alignment and force into rows with spacing */
+			table[class="col-3"] {
+				float: none !important;
+				width: 100% !important;
+				margin-bottom: 10px;
+				padding-bottom: 10px;
+				border-bottom: 1px solid #eee;
+			}
 
-<h2>
-<a name="tested-in" class="anchor" href="#tested-in"><span class="octicon octicon-link"></span></a>Tested In</h2>
+      /* align images right */
+			img[class="col-3-img-r"] {
+				float: right;
+				margin-left: 20px;
+			}
 
-<ul>
-<li>Webmail services: Hotmail, Gmail, Yahoo!, and AOL.</li>
-<li>Mobile: iOS Mail and Android Email.</li>
-<li>Desktop clients: Apple Mail, Thunderbird, Outlook (2007, 2010), and Outlook Mail (OSX).</li>
-<li>Devices: iPhone (4, 4S, 5), iPod (Retina), iPad (1, 2, 3, Mini), Asus Transformer tablet, Windows desktop, Mac desktop</li>
-</ul><h2>
-<a name="known-issues" class="anchor" href="#known-issues"><span class="octicon octicon-link"></span></a>Known Issues</h2>
+      /* align images left */
+			img[class="col-3-img-l"] {
+					float: left;
+					margin-right: 20px;
+			}
 
-<ul><li>
-<strong>Gmail iOS</strong> - Gmail (desktop and mobile) strips out  tag, disabling all media queries. So Gmail gets the desktop layout, shrunk down. It&amp;#39;s a fallback we can live with.&lt;/li&gt;
-&lt;/ul&gt;
+      /* Force <table> cells into rows of 2 */
+ 			td[class="force-col-2"] {
+				display: block;
+				padding: 0 !important;
+				width: 50%;
+				float: left;
+			}
+			
+			table[class="image-grid"] img {
+				float: none !important;
+				display: inline-block !important;
+				margin: 0 -2px !important;
+			}
 
-&lt;h2&gt;Tools and Resources&lt;/h2&gt;
+		}
 
-&lt;ul&gt;
-&lt;li&gt;&lt;a href="http://www.campaignmonitor.com/css"&gt;Guide to CSS Support&lt;/a&gt; from Campaign Monitor.&lt;/li&gt;
-&lt;li&gt;&lt;a href="www.campaignmonitor.com/guides/mobile/"&gt;Responsive Email Design Guide&lt;/a&gt; from Campaign Monitor.&lt;/li&gt;
-&lt;li&gt;&lt;a href="https://github.com/InterNations/antwort"&gt;Antwort&lt;/a&gt; from InterNations.&lt;/li&gt;
-&lt;li&gt;&lt;a href="http://htmlemailboilerplate.com/"&gt;HTML Email Boilerplate&lt;/a&gt; from Sean Powell.&lt;/li&gt;
-&lt;li&gt;&lt;a href="http://emailbg.net/"&gt;Bulletproof Email Background Images&lt;/a&gt; from Stig Morten Myre.&lt;/li&gt;
-&lt;li&gt;&lt;a href="http://cipsum.com/"&gt;Corporate Ipsum&lt;/a&gt; by Cameron Brister&lt;/li&gt;
-&lt;/ul&gt;
+		/* Rules prefixed with 'hh-' repeat much of what's above, but only on handheld screens. */
+		@media only screen and (max-width : 480px) {
 
-&lt;h2&gt;Demo&lt;/h2&gt;
+			td[class="hh-force-col"],
+			td[class="hh-force-col-center"] {
+				display: block;
+				padding-right: 0 !important;
+			}
+			
+			td[class="hh-force-col-center"] {
+				text-align: center !important;
+			}
+			
+			td[class="hh-force-col-center"] img {
+				margin: auto;
+			}
+			
+			img[class="hh-fluid"] {
+				width: 100% !important;
+				max-width: 100%;
+				height: auto;
+			}
 
-&lt;ul&gt;
-&lt;li&gt;Download and resize your browser window to see its responsiveness.&lt;/li&gt;
-&lt;/ul&gt;
+			img[class="col-3-img-r"],
+			img[class="col-3-img-l"] {
+				float: none;
+				text-align: center;
+				display: block;
+				margin: 0 auto;
+			}
 
-&lt;h2&gt;Download, Fork, Commit.&lt;/h2&gt;
-
-&lt;p&gt;If you think you can make this better, please Download, Fork, &amp;amp; Commit. I&amp;#39;d love your see your ideas and make this as solid as can be.&lt;/p&gt;</li></ul>
-      </section>
-      <footer>
-        <p>This project is maintained by <a href="https://github.com/TedGoas">TedGoas</a></p>
-        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
-      </footer>
-    </div>
-    <script src="javascripts/scale.fix.js"></script>
+		}
     
-  </body>
+    </style>
+</head>
+<body bgcolor="#ead4b4" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" style="margin:0; padding:0;-webkit-text-size-adjust:none; -ms-text-size-adjust:none;background: #ead4b4 url(bg-email.jpg);">
+<!-- CSS Image background in Outlook : BEGIN -->
+<!--[if gte mso 9]>
+  <v:background xmlns:v="urn:schemas-microsoft-com:vml" fill="t">
+    <v:fill type="tile" color="#ead4b4" src="bg-email.jpg">
+  </v:background>
+<![endif]-->
+<!-- CSS Image background in Outlook : END -->
+<!-- 100% wrapper : BEGIN -->
+<table border="0" width="100%" height="100%" cellpadding="0" cellspacing="0">
+  <tr>
+    <td align="center" valign="top">
+
+      <!-- Logo + web view : BEGIN -->
+      <table border="0" width="680" cellpadding="0" cellspacing="0" class="email-container">
+        <tr>
+        	<td height="40" style="font-size: 0; line-height: 0;">
+          	&nbsp; <!-- A hard, vertical spacer when it matters and css-padding isn't supported -->
+          </td>
+        </tr>
+        <tr>
+          <td>
+						<table width="100%" border="0" cellpadding="0" cellspacing="0" class="columns-container">
+            	<tr>
+              	<td class="hh-force-col-center" valign="middle" style="text-align: left;">
+                	<img src="http://placehold.it/300x75/cccccc/aaaaaa&text=logo" height="75" width="300" border="0" style="display: block;border: 1px solid #bbb;">
+                </td>
+                <td class="hh-force-col-center" valign="middle" style="text-align: right;">
+                	<webversion style="font-family: Segoe,'Segoe UI',Helvetica,Arial,sans-serif; font-size: 14px; color: #1c83d2; text-decoration: underline;">view in a browser</webversion>
+                </td>
+              </tr>
+            </table>
+					</td>
+				</tr>
+        <tr>
+        	<td height="20" style="font-size: 0; line-height: 0;">
+          	&nbsp;
+          </td>
+        </tr>
+      </table>
+      <!-- Logo + web view : END -->
+
+      <!-- Main Email Container : BEGIN -->
+      <table border="0" width="680" cellpadding="0" cellspacing="0" class="email-container">
+        <tr>
+          <td style="border: 1px solid #bbb;">
+            <!-- Mast Image : BEGIN -->
+						<img src="http://placehold.it/680x350/cccccc/aaaaaa" height="350" width="680" border="0" style="display: block;" class="fluid">
+            <!-- Mast Image : END -->
+
+            <!-- Email Body : BEGIN -->
+            <table border="0" width="680" cellpadding="0" cellspacing="0" class="email-container">
+              <!-- Full Width, Fluid Column : BEGIN -->
+              <tr>
+                <td bgcolor="#ffffff" style="padding: 20px;font-family: Segoe,'Segoe UI',Helvetica,Arial,sans-serif; font-size: 16px; line-height: 24px;color: #444;background-color: #ffffff;border-bottom: 1px solid #eee;">
+                  Completely synergize resource sucking relationships via premier niche markets. Professionally cultivate one-to-one customer service with robust ideas. Dynamically innovate resource-leveling customer service for state of the art customer service.
+                  <br><br>
+                  Objectively innovate empowered manufactured products whereas parallel platforms. Holisticly predominate extensible testing procedures for reliable supply chains. Dramatically engage top-line web services vis-a-vis cutting-edge deliverables.
+                  <br><br>
+                  Proactively envisioned multimedia based expertise and cross-media growth strategies. Seamlessly visualize quality intellectual capital without superior collaboration and idea-sharing. Holistically pontificate installed base portals after maintainable products.
+                </td>
+              </tr>
+              <!-- Full Width, Fluid Column : BEGIN -->
+              
+              <!-- Three Column ==> Stacked Layout : BEGIN -->
+              <tr>
+                <td bgcolor="#ffffff" style="background-color: #ffffff; padding: 20px;border-bottom: 1px solid #eee;">
+                  <table border="0" cellpadding="0" cellspacing="0" class="columns-container">
+                    <tr>
+                      <td class="force-col" style="padding-right: 20px;" valign="top">
+                        <table border="0" cellspacing="0" cellpadding="0" width="200" align="left" class="col-3">
+                          <tr>
+                            <td align="left" valign="top" style="font-family: Segoe,'Segoe UI',Helvetica,Arial,sans-serif; font-size: 14px; color: #444; line-height: 18px;">
+                              <img src="http://placehold.it/200x130/dddddd/bbbbbb" height="130" width="200" border="0" style="display: block;padding-bottom: 10px;" class="col-3-img-r">
+                              <a href="#" style="color:#1c83d2; font-weight:bold">Proactively Envision</a><br>
+                              Collaboratively administrate empowered markets via plug-and-play networks. Dynamically procrastinate B2C users after installed base benefits. Dramatically visualize customer directed convergence without revolutionary ROI.
+                            </td>
+                          </tr>
+                        </table>
+                      </td>
+                      <td class="force-col" style="padding-right: 20px;" valign="top">
+                        <table border="0" cellspacing="0" cellpadding="0" width="200" align="left" class="col-3">
+                          <tr>
+                            <td align="left" valign="top" style="font-family: Segoe,'Segoe UI',Helvetica,Arial,sans-serif; font-size: 14px; color: #444; line-height: 18px;">
+                              <img src="http://placehold.it/200x130/dddddd/bbbbbb" height="130" width="200" border="0" style="display: block;padding-bottom: 10px;" class="col-3-img-l">
+                              <a href="#" style="color:#1c83d2; font-weight:bold">Proactively Envision</a><br>
+                              Efficiently unleash cross-media information without cross-media value. Quickly maximize timely deliverables for real-time schemas. Dramatically maintain clicks-and-mortar solutions without functional solutions.
+                            </td>
+                          </tr>
+                        </table>
+                      </td>
+                      <td class="force-col"  valign="top">
+                        <table border="0" cellspacing="0" cellpadding="0" width="200" align="left" class="col-3" style="border-bottom: 0; padding-bottom: 0;">
+                          <tr>
+                            <td align="left" valign="top" style="font-family: Segoe,'Segoe UI',Helvetica,Arial,sans-serif; font-size: 14px; color: #444; line-height: 18px;">
+                              <img src="http://placehold.it/200x130/dddddd/bbbbbb" height="130" width="200" border="0" style="display: block;padding-bottom: 10px;" class="col-3-img-r">
+                              <a href="#" style="color:#1c83d2; font-weight:bold">Intellectual Capital</a><br>
+                              Completely synergize resource sucking relationships via premier niche markets. Professionally cultivate one-to-one customer service with robust ideas. Dynamically innovate resource-leveling customer service for state of the art customer service.
+                            </td>
+                          </tr>
+                        </table>
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+              <!-- Three Column ==> Stacked Layout : END -->
+              <!-- Two Column, Right Image ==> Stacked Layout : BEGIN -->
+              <tr>
+                <td bgcolor="#ffffff" style="background-color: #ffffff;border-bottom: 1px solid #eee;" class="padding-tablet">
+                  <table cellspacing="0" cellpadding="0" border="0">
+                    <tr>
+                      <td class="hide-from-tablet" style="font-size: 0; line-height: 0; width: 20px;">&nbsp;</td>
+                      <td valign="top" style="font-family: Segoe,'Segoe UI',Helvetica,Arial,sans-serif; font-size: 14px; line-height: 18px;color: #444;" class="force-col">
+                        <br>
+                        <strong style="font-size: 16px;">Administrate turnkey channels </strong><br><br>
+                        Proactively envisioned multimedia based expertise and cross-media growth strategies. Seamlessly visualize quality intellectual capital without superior collaboration and idea-sharing. Holistically pontificate installed base portals after maintainable products.<br><br>
+                        Interactively procrastinate high-payoff content without backward-compatible data. Quickly cultivate optimal processes and tactical architectures.
+                      </td>
+                      <td class="force-col-center" valign="top" style="padding-left: 20px;">
+                        <img src="http://placehold.it/340/dddddd/bbbbbb" height="340" width="340" border="0" style="display: block;" class="hh-fluid">
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+              <!-- Two Column, Right Image ==> Stacked Layout : END -->
+              <!-- Three Column, Misc ==> Stacked Layout : BEGIN -->
+              <tr>
+                <td bgcolor="#ffffff" style="background-color: #ffffff; padding: 20px;border-bottom: 1px solid #eee;">
+                  <table cellspacing="0" cellpadding="0" border="0">
+                    <tr>
+                      <td class="hh-force-col-center" valign="top">
+                        <img src="http://placehold.it/200/dddddd/bbbbbb" height="200" width="200" border="0" style="display: block;">
+                      </td>
+                      <td class="force-col" valign="top">
+                        <table cellpadding="0" cellspacing="0" border="0" style="padding-left: 20px;">
+                          <tr>
+                            <td valign="top" style="font-family: Segoe,'Segoe UI',Helvetica,Arial,sans-serif; font-size: 14px; line-height: 18px;color: #444;" class="force-col">
+                              <strong style="font-size: 16px;">Administrate channels</strong>
+                              <br><br>
+                              Proactively envisioned multimedia based expertise and cross-media growth strategies. Seamlessly visualize quality intellectual capital without superior collaboration and idea-sharing.
+                            </td>
+                            </td>
+                            <td valign="top" style="font-family: Segoe,'Segoe UI',Helvetica,Arial,sans-serif; font-size: 12px; line-height: 18px;color: #888;padding-left: 20px;" class="force-col"><br><br>
+                              <em>Interactively procrastinate high-payoff content without backward-compatible data. Quickly cultivate optimal processes and tactical architectures. Completely iterate covalent strategic theme areas via accurate e-markets.</em>
+                            </td>
+                          </tr>
+                        </table>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+              <!-- Three Column, Misc ==> Stacked Layout : END -->
+              <!-- Wide Grid of Images ==> Tall Grid of Images : BEGIN -->
+              <tr>
+                <td bgcolor="#ffffff" style="background-color: #ffffff; padding: 20px;">
+                  <table cellspacing="0" cellpadding="0" border="0" width="100%" class="image-grid">
+                    <tr>
+                      <td style="text-align: center; line-height: 0;">
+                        <img src="http://placehold.it/158/dddddd/bbbbbb&text=1" height="158" width="158" border="0" style="display: block;margin: auto;float: left;border: 1px solid #fff;">
+                        <img src="http://placehold.it/158/dddddd/bbbbbb&text=2" height="158" width="158" border="0" style="display: block;margin: auto;float: left;border: 1px solid #fff;">
+                        <img src="http://placehold.it/158/dddddd/bbbbbb&text=3" height="158" width="158" border="0" style="display: block;margin: auto;float: left;border: 1px solid #fff;">
+                        <img src="http://placehold.it/158/dddddd/bbbbbb&text=4" height="158" width="158" border="0" style="display: block;margin: auto;float: left;border: 1px solid #fff;">
+                        <img src="http://placehold.it/158/dddddd/bbbbbb&text=5" height="158" width="158" border="0" style="display: block;margin: auto;float: left;border: 1px solid #fff;">
+                        <img src="http://placehold.it/158/dddddd/bbbbbb&text=6" height="158" width="158" border="0" style="display: block;margin: auto;float: left;border: 1px solid #fff;">
+                        <img src="http://placehold.it/158/dddddd/bbbbbb&text=7" height="158" width="158" border="0" style="display: block;margin: auto;float: left;border: 1px solid #fff;">
+                        <img src="http://placehold.it/158/dddddd/bbbbbb&text=8" height="158" width="158" border="0" style="display: block;margin: auto;float: left;border: 1px solid #fff;">
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+              <!-- Wide Grid of Images ==> Tall Grid of Images : END -->
+            </table>
+					</td>
+				</tr>
+      </table>
+      <!-- Main Email Container : END -->
+      
+      <!-- Single Column, Fluid Footer : BEGIN -->
+      <table border="0" width="680" cellpadding="0" cellspacing="0" class="email-container">
+				<tr>
+        	<td style="text-align: center;padding: 20px;font-family: Segoe,'Segoe UI',Helvetica,Arial,sans-serif; font-size: 12px; line-height: 18px;color: #888;">
+            If you no longer wish to receive these emails, you can <unsubscribe style="color: #1c83d2; padding: 0;text-decoration: underline">unsubscribe</unsubscribe>.<br><br>
+            Company Name &bull; 123 Fake Sreet, SpringField, Ohio 45506 US &bull; <span class="mobile_link">(123) 456-7890</span><br /><br /></td>
+          </td>
+        </tr>
+			</table>
+      <!-- Single Column, Fluid Footer : END -->
+    </td>
+  </tr>
+</table>
+<!--/100% wrapper-->
+<br>
+<br>
+</body>
 </html>
+
