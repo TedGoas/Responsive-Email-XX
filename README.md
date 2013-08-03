@@ -11,7 +11,7 @@ This template *is not* meant to be used out of the box. Any email derived from t
 * Devices: iPhone (4, 4S, 5), iPod (Retina), iPad (1, 2, 3, Mini), Asus Transformer tablet, Windows desktop, Mac desktop
 
 ## Known Issues
-* **Gmail iOS** - Gmail (desktop and mobile) strips out <style> tag, disabling all media queries. So Gmail gets the desktop layout, shrunk down. It's a fallback we can live with.
+* **Gmail iOS** - Gmail (desktop and mobile) strips out <style> tag, disabling all media queries. So Gmail gets the desktop layout, shrunk down (somewhat graceful degradation).
 
 ## Tools and Resources
 * [Guide to CSS Support](http://www.campaignmonitor.com/css) from Campaign Monitor.
