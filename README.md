@@ -20,6 +20,7 @@ This template *is not* meant to be used out of the box. Any email derived from t
 * [HTML Email Boilerplate](http://htmlemailboilerplate.com/) from Sean Powell.
 * [Bulletproof Email Background Images](http://emailbg.net/) from Stig Morten Myre.
 * [Corporate Ipsum](http://cipsum.com/) by Cameron Brister.
+* [Placeholder Images](http://placehold.it/) by Brent Spore.
 
 ## Demo
 * [Demo](http://tedgoas.github.io/Responsive-Email-XX/)
