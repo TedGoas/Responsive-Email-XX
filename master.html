@@ -1,16 +1,10 @@
-<!-- Visibly hidden text for inbox previews : BEGIN -->
-<!-- Careful! This trick is "gray hat" and might trigger spam filters. Use judiciously. -->
-<div style="font-size: 0; line-height: 0;">
-	This text appears in email's inbox list, but not the actual email.
-</div>
-<!-- Visibly hidden text for inbox previews : BEGIN -->
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html lang="en">
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <meta name="viewport" content="initial-scale=1.0"> <!-- So that mobile webkit will display zoomed in -->
   <meta name="format-detection" content="telephone=no"> <!-- disable auto telephone linking in iOS -->
-  <title>Subject Line (for proofing)</title>
+  <title>Subject Line (for proofing, doesn't show in actual email)</title>
   <style type="text/css">
 		
 		/* Force Hotmail to display emails at full width */
@@ -50,50 +44,51 @@
 			border-bottom: none !important;
 		}
         
-		@media screen and (max-width: 700px) {
+		@media screen and (max-width: 650px) {
 
 			/* Constrain email width for small screens */
 			table[class="email-container"] {
 				width: 98% !important;
 			}
 
-      /* make images expand to full width of their container */
+      /* Force elements to resize to full width of their container */
 			img[class="fluid"] {
 				width: 100% !important;
-				max-width: 100%;
 				height: auto;
 			}
-
+			
+			table[class="fluid"] {
+				width: auto !important;
+				margin-left: 20px !important;
+				margin-right: 20px !important;
+			}
+			
       /* Force <table> cells into rows */
  			td[class="force-col"],
-			td[class="force-col-center"] {
+ 			td[class="force-col-center"] {
 				display: block !important;
 				width: 100% !important;
-				padding: 0 !important;
 			}
-
-      /* Center images with a bit of vertical spacing */
-			td[class="force-col-center"] img {
-				display: block !important;
+			td[class="force-col-center"] {
 				text-align: center !important;
-				margin: 20px auto !important;
 			}
-
-      /* Give cells extra padding */
-			td[class="padding-tablet"] {
-				padding: 20px !important;
-			}
-
-      /* unset table alignment and force into rows with spacing */
+			img[class="force-col-center"] {
+				margin: auto !important;
+				}
+				
+			/* unset table alignment and force into rows with spacing */
 			table[class="col-3"] {
 				float: none !important;
 				width: 100% !important;
 				margin-bottom: 10px;
 				padding-bottom: 10px;
-				border-bottom: 1px solid #eee;
+				border-bottom: 1px solid #ccc;
 			}
 
       /* align images right */
+			table[class="col-3"] {
+				width: 100% !important;
+			}
 			img[class="col-3-img-r"] {
 				float: right;
 				margin-left: 20px;
@@ -105,59 +100,67 @@
 					margin-right: 20px;
 			}
 
-      /* Force <table> cells into rows of 2 */
- 			td[class="force-col-2"] {
-				display: block;
+			/* Grid with wrapping image thumbnails */
+			td[class="image-grid"] {
 				padding: 0 !important;
-				width: 50%;
-				float: left;
 			}
-			
-			table[class="image-grid"] img {
+			img[class="image-grid"] {
 				float: none !important;
 				display: inline-block !important;
 				margin: 0 -2px !important;
 			}
 
 		}
-
+		
 		/* Rules prefixed with 'hh-' repeat much of what's above, but only on handheld screens. */
 		@media only screen and (max-width : 480px) {
 
+			img[class="hh-fluid"] {
+				width: 100% !important;
+				height: auto;
+			}
+			
 			td[class="hh-force-col"],
 			td[class="hh-force-col-center"] {
 				display: block !important;
 				width: 100% !important;
-				padding-right: 0 !important;
 			}
 			
 			td[class="hh-force-col-center"] {
 				text-align: center !important;
 			}
 			
-			td[class="hh-force-col-center"] img {
-				margin: auto;
-			}
-			
-			img[class="hh-fluid"] {
-				width: 100% !important;
-				max-width: 100%;
-				height: auto;
-			}
+			img[class="hh-force-col-center"] {
+				margin: 0 auto 20px auto !important;
+				}
 
 			img[class="col-3-img-r"],
 			img[class="col-3-img-l"] {
-				float: none;
-				text-align: center;
+				margin: auto !important;
+				float: none !important;
 				display: block;
-				margin: 0 auto;
+				text-align: center !important;
+			}
+			
+			table[class="fluid"] table {
+				margin-left: 0 !important;
+				margin-right: 0 !important;
+			}
+			table[class="fluid"] table td {
+				padding: 0 !important;
+			}
+
+			img[class="image-grid"] {
+				width: 50%;
+				height: auto;
 			}
 
 		}
     
-    </style>
+  </style>
 </head>
 <body bgcolor="#ead4b4" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" style="margin:0; padding:0;-webkit-text-size-adjust:none; -ms-text-size-adjust:none;background: #ead4b4 url(bg-email.jpg);">
+
 <!-- CSS Image background in Outlook : BEGIN -->
 <!--[if gte mso 9]>
   <v:background xmlns:v="urn:schemas-microsoft-com:vml" fill="t">
@@ -165,194 +168,210 @@
   </v:background>
 <![endif]-->
 <!-- CSS Image background in Outlook : END -->
-<!-- 100% wrapper : BEGIN -->
-<table border="0" width="100%" height="100%" cellpadding="0" cellspacing="0">
-  <tr>
-    <td align="center" valign="top">
-      <!-- Logo + web view : BEGIN -->
-      <table border="0" width="680" cellpadding="0" cellspacing="0" class="email-container">
-        <tr>
-        	<td height="40" style="font-size: 0; line-height: 0;">
-          	&nbsp; <!-- A hard, vertical spacer when it matters and css-padding isn't supported -->
-          </td>
-        </tr>
-        <tr>
-          <td>
-						<table width="100%" border="0" cellpadding="0" cellspacing="0" class="columns-container">
-            	<tr>
-              	<td class="hh-force-col-center" valign="middle" style="text-align: left;">
-                	<img src="http://placehold.it/300x75/cccccc/aaaaaa&text=logo" height="75" width="300" border="0" style="display: block;border: 1px solid #bbb;">
-                </td>
-                <td class="hh-force-col-center" valign="middle" style="text-align: right;">
-                	<webversion style="font-family: Segoe,'Segoe UI',Helvetica,Arial,sans-serif; font-size: 14px; color: #1c83d2; text-decoration: underline;">view in a browser</webversion>
-                </td>
-              </tr>
-            </table>
-					</td>
-				</tr>
-        <tr>
-        	<td height="20" style="font-size: 0; line-height: 0;">&nbsp;
-          	
-          </td>
-        </tr>
-      </table>
-      <!-- Logo + web view : END -->
 
-      <!-- Main Email Container : BEGIN -->
-      <table border="0" width="680" cellpadding="0" cellspacing="0" class="email-container">
-        <tr>
-          <td style="border: 1px solid #bbb;">
-            <!-- Mast Image : BEGIN -->
-						<img src="http://placehold.it/680x350/cccccc/aaaaaa" height="350" width="680" border="0" style="display: block;" class="fluid">
-            <!-- Mast Image : END -->
-
-            <!-- Email Body : BEGIN -->
-            <table border="0" width="100%" cellpadding="0" cellspacing="0">
-              <!-- Full Width, Fluid Column : BEGIN -->
-              <tr>
-                <td bgcolor="#ffffff" style="padding: 20px;font-family: Segoe,'Segoe UI',Helvetica,Arial,sans-serif; font-size: 16px; line-height: 24px;color: #444;background-color: #ffffff;border-bottom: 1px solid #eee;">
-                  Completely synergize resource sucking relationships via premier niche markets. Professionally cultivate one-to-one customer service with robust ideas. Dynamically innovate resource-leveling customer service for state of the art customer service.
-                  <br><br>
-                  Objectively innovate empowered manufactured products whereas parallel platforms. Holisticly predominate extensible testing procedures for reliable supply chains. Dramatically engage top-line web services vis-a-vis cutting-edge deliverables.
-                  <br><br>
-                  Proactively envisioned multimedia based expertise and cross-media growth strategies. Seamlessly visualize quality intellectual capital without superior collaboration and idea-sharing. Holistically pontificate installed base portals after maintainable products.
-                </td>
-              </tr>
-              <!-- Full Width, Fluid Column : END -->
-              
-              <!-- Three Column ==> Stacked Layout : BEGIN -->
-              <tr>
-                <td bgcolor="#ffffff" style="background-color: #ffffff; padding: 20px;border-bottom: 1px solid #eee;">
-                  <table border="0" cellpadding="0" cellspacing="0" width="100%">
-                    <tr>
-                      <td class="force-col" style="padding-right: 20px;" valign="top">
-                        <table border="0" cellspacing="0" cellpadding="0" width="200" align="left" class="col-3">
-                          <tr>
-                            <td align="left" valign="top" style="font-family: Segoe,'Segoe UI',Helvetica,Arial,sans-serif; font-size: 14px; color: #444; line-height: 18px;">
-                              <img src="http://placehold.it/200x130/dddddd/bbbbbb" height="130" width="200" border="0" style="display: block;padding-bottom: 10px;" class="col-3-img-r">
-                              <a href="#" style="color:#1c83d2; font-weight:bold">Proactively Envision</a><br>
-                              Collaboratively administrate empowered markets via plug-and-play networks. Dynamically procrastinate B2C users after installed base benefits. Dramatically visualize customer directed convergence without revolutionary ROI.
-                            </td>
-                          </tr>
-                        </table>
-                      </td>
-                      <td class="force-col" style="padding-right: 20px;" valign="top">
-                        <table border="0" cellspacing="0" cellpadding="0" width="200" align="left" class="col-3">
-                          <tr>
-                            <td align="left" valign="top" style="font-family: Segoe,'Segoe UI',Helvetica,Arial,sans-serif; font-size: 14px; color: #444; line-height: 18px;">
-                              <img src="http://placehold.it/200x130/dddddd/bbbbbb" height="130" width="200" border="0" style="display: block;padding-bottom: 10px;" class="col-3-img-l">
-                              <a href="#" style="color:#1c83d2; font-weight:bold">Proactively Envision</a><br>
-                              Efficiently unleash cross-media information without cross-media value. Quickly maximize timely deliverables for real-time schemas. Dramatically maintain clicks-and-mortar solutions without functional solutions.
-                            </td>
-                          </tr>
-                        </table>
-                      </td>
-                      <td class="force-col" valign="top">
-                        <table border="0" cellspacing="0" cellpadding="0" width="200" align="left" class="col-3" style="border-bottom: 0; padding-bottom: 0;">
-                          <tr>
-                            <td align="left" valign="top" style="font-family: Segoe,'Segoe UI',Helvetica,Arial,sans-serif; font-size: 14px; color: #444; line-height: 18px;">
-                              <img src="http://placehold.it/200x130/dddddd/bbbbbb" height="130" width="200" border="0" style="display: block;padding-bottom: 10px;" class="col-3-img-r">
-                              <a href="#" style="color:#1c83d2; font-weight:bold">Intellectual Capital</a><br>
-                              Completely synergize resource sucking relationships via premier niche markets. Professionally cultivate one-to-one customer service with robust ideas. Dynamically innovate resource-leveling customer service for state of the art customer service.
-                            </td>
-                          </tr>
-                        </table>
-                      </td>
-                    </tr>
-                  </table>
-                </td>
-              </tr>
-              <!-- Three Column ==> Stacked Layout : END -->
-              <!-- Two Column, Right Image ==> Stacked Layout : BEGIN -->
-              <tr>
-                <td bgcolor="#ffffff" style="background-color: #ffffff;border-bottom: 1px solid #eee;" class="padding-tablet">
-                  <table cellspacing="0" cellpadding="0" border="0" width="100%">
-                    <tr>
-                      <td class="hide-from-tablet" style="font-size: 0; line-height: 0; width: 20px;">&nbsp;</td>
-                      <td valign="top" style="font-family: Segoe,'Segoe UI',Helvetica,Arial,sans-serif; font-size: 14px; line-height: 18px;color: #444;" class="force-col">
-                        <br>
-                        <strong style="font-size: 16px;">Administrate turnkey channels </strong><br><br>
-                        Proactively envisioned multimedia based expertise and cross-media growth strategies. Seamlessly visualize quality intellectual capital without superior collaboration and idea-sharing. Holistically pontificate installed base portals after maintainable products.<br><br>
-                        Interactively procrastinate high-payoff content without backward-compatible data. Quickly cultivate optimal processes and tactical architectures.
-                      </td>
-                      <td class="force-col-center" valign="top" style="padding-left: 20px;">
-                        <img src="http://placehold.it/340/dddddd/bbbbbb" height="340" width="340" border="0" style="display: block;" class="hh-fluid">
-                      </td>
-                    </tr>
-                  </table>
-                </td>
-              </tr>
-              <!-- Two Column, Right Image ==> Stacked Layout : END -->
-              <!-- Three Column, Misc ==> Stacked Layout : BEGIN -->
-              <tr>
-                <td bgcolor="#ffffff" style="background-color: #ffffff; padding: 20px;border-bottom: 1px solid #eee;">
-                  <table cellspacing="0" cellpadding="0" border="0">
-                    <tr>
-                      <td class="hh-force-col-center" valign="top">
-                        <img src="http://placehold.it/200/dddddd/bbbbbb" height="200" width="200" border="0" style="display: block;">
-                      </td>
-                      <td class="force-col" valign="top">
-                        <table cellpadding="0" cellspacing="0" border="0" width="100%" style="padding-left: 20px;">
-                          <tr>
-                            <td valign="top" style="font-family: Segoe,'Segoe UI',Helvetica,Arial,sans-serif; font-size: 14px; line-height: 18px;color: #444;" class="force-col">
-                              <br>
-                              <strong style="font-size: 16px;">Visualize Quality</strong>
-                              <br><br>
-                              Proactively envisioned multimedia based expertise and cross-media growth strategies. Seamlessly visualize quality intellectual capital without superior collaboration and idea-sharing.
-                            </td>
-                            <td valign="top" style="font-family: Segoe,'Segoe UI',Helvetica,Arial,sans-serif; font-size: 12px; line-height: 18px;color: #888;padding-left: 20px;padding-top: 36px;" class="force-col"><br>
-                              <em>Interactively procrastinate high-payoff content without backward-compatible data. Quickly cultivate optimal processes and tactical architectures. Completely iterate covalent strategic theme areas via accurate e-markets.</em>
-                            </td>
-                          </tr>
-                        </table>
-                      </td>
-                    </tr>
-                  </table>
-                </td>
-              </tr>
-              <!-- Three Column, Misc ==> Stacked Layout : END -->
-              <!-- Wide Grid of Images ==> Tall Grid of Images : BEGIN -->
-              <tr>
-                <td bgcolor="#ffffff" style="background-color: #ffffff; padding: 20px;">
-                  <table cellspacing="0" cellpadding="0" border="0" width="100%" class="image-grid">
-                    <tr>
-                      <td style="text-align: center; line-height: 0;">
-                        <img src="http://placehold.it/158/dddddd/bbbbbb&text=1" height="158" width="158" border="0" style="display: block;margin: auto;float: left;border: 1px solid #fff;">
-                        <img src="http://placehold.it/158/dddddd/bbbbbb&text=2" height="158" width="158" border="0" style="display: block;margin: auto;float: left;border: 1px solid #fff;">
-                        <img src="http://placehold.it/158/dddddd/bbbbbb&text=3" height="158" width="158" border="0" style="display: block;margin: auto;float: left;border: 1px solid #fff;">
-                        <img src="http://placehold.it/158/dddddd/bbbbbb&text=4" height="158" width="158" border="0" style="display: block;margin: auto;float: left;border: 1px solid #fff;">
-                        <img src="http://placehold.it/158/dddddd/bbbbbb&text=5" height="158" width="158" border="0" style="display: block;margin: auto;float: left;border: 1px solid #fff;">
-                        <img src="http://placehold.it/158/dddddd/bbbbbb&text=6" height="158" width="158" border="0" style="display: block;margin: auto;float: left;border: 1px solid #fff;">
-                        <img src="http://placehold.it/158/dddddd/bbbbbb&text=7" height="158" width="158" border="0" style="display: block;margin: auto;float: left;border: 1px solid #fff;">
-                        <img src="http://placehold.it/158/dddddd/bbbbbb&text=8" height="158" width="158" border="0" style="display: block;margin: auto;float: left;border: 1px solid #fff;">
-                      </td>
-                    </tr>
-                  </table>
-                </td>
-              </tr>
-              <!-- Wide Grid of Images ==> Tall Grid of Images : END -->
-            </table>
-					</td>
-				</tr>
-      </table>
-      <!-- Main Email Container : END -->
+  <!-- Logo + web view : BEGIN -->
+  <table border="0" width="650" cellpadding="0" cellspacing="0" align="center" class="email-container">
+    <tr>
+      <td height="20" style="font-size: 0; line-height: 0;">&nbsp;</td>
+    </tr>
+    <tr>
+      <td class="force-col-center" valign="middle" style="text-align: left;">
+        <img src="http://placehold.it/300x75/cccccc/aaaaaa&text=logo" height="75" width="300" border="0" style="display: block;border: 1px solid #ccc;" class="force-col-center">
+      </td>
+      <td class="force-col-center" valign="middle" style="text-align: right;">
+        <webversion style="font-family: sans-serif; font-size: 14px; color: #1c83d2; text-decoration: underline;">view in a browser</webversion>
+      </td>
+    </tr>
+    <tr>
+      <td height="20" style="font-size: 0; line-height: 0;">&nbsp;</td>
+    </tr>
+  </table>
+  <!-- Logo + web view : END -->
+  
+  <!-- Email Container : BEGIN -->
+    <table border="0" width="650" cellpadding="0" cellspacing="0" align="center" style="border: 1px solid #ccc;background: #ffffff;" class="email-container">
+  
+      <!-- Mast Image : BEGIN -->
+      <tr>
+        <td>
+          <img src="http://placehold.it/650x350/cccccc/aaaaaa" height="350" width="650" border="0" style="display: block;" class="fluid">
+        </td>
+      </tr>
+      <!-- Mast Image : END -->
+  
+      <!-- Full Width, Fluid Column : BEGIN -->
+      <tr>
+        <td style="border-bottom: 1px solid #ccc;">
+          <table border="0" width="610" cellpadding="0" cellspacing="0" align="center" class="fluid">
+            <tr>
+              <td height="20" style="font-size: 0; line-height: 0;">&nbsp;</td>
+            </tr>
+            <tr>
+              <td style="font-family: sans-serif; font-size: 16px; line-height: 24px;color: #444;">
+                Completely synergize resource sucking relationships via premier niche markets. Professionally cultivate one-to-one customer service with robust ideas. Dynamically innovate resource-leveling customer service for state of the art customer service.
+                <br><br>
+                Objectively innovate empowered manufactured products whereas parallel platforms. Holisticly predominate extensible testing procedures for reliable supply chains. Dramatically engage top-line web services vis-a-vis cutting-edge deliverables.
+                <br><br>
+                Proactively envisioned multimedia based expertise and cross-media growth strategies. Seamlessly visualize quality intellectual capital without superior collaboration and idea-sharing. Holistically pontificate installed base portals after maintainable products.
+              </td>
+            </tr>
+            <tr>
+              <td height="20" style="font-size: 0; line-height: 0;">&nbsp;</td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+      <!-- Full Width, Fluid Column : BEGIN -->
+  
+      <!-- Two Column, Right Flush Image ==> Stacked Layout : BEGIN -->
+      <tr>
+        <td style="border-bottom: 1px solid #ccc;">
+          <table cellspacing="0" cellpadding="0" border="0" width="100%" bgcolor="#ffffff" style="background-color: #ffffff;">
+            <tr>
+              <td valign="top" class="force-col">
+                <table cellspacing="0" cellpadding="0" border="0">
+                  <tr>
+                    <td style="padding: 20px;font-family: sans-serif; font-size: 14px; line-height: 18px; color: #444;">
+                      <strong style="font-size: 16px;">Administrate turnkey channels</strong><br><br>
+                      Proactively envisioned multimedia based expertise and cross-media growth strategies. Seamlessly visualize quality intellectual capital without superior collaboration and idea-sharing. Holistically pontificate installed base portals after maintainable products.<br><br>
+                      Interactively procrastinate high-payoff content without backward-compatible data. Quickly cultivate optimal processes and tactical architectures.
+                    </td>
+                  </tr>
+                </table>
+              </td>
+              <td valign="top" style="font-size: 0; line-height: 0;" class="force-col-center">
+                <img src="http://placehold.it/340/dddddd/bbbbbb" height="325" width="325" border="0" style="display: block;margin: auto;" class="hh-fluid">
+              </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+      <!-- Two Column, Right Flush Image ==> Stacked Layout : END -->
       
-      <!-- Single Column, Fluid Footer : BEGIN -->
-      <table border="0" width="680" cellpadding="0" cellspacing="0" class="email-container">
-				<tr>
-        	<td style="text-align: center;padding: 20px;font-family: Segoe,'Segoe UI',Helvetica,Arial,sans-serif; font-size: 12px; line-height: 18px;color: #888;">
-            If you no longer wish to receive these emails, you can <unsubscribe style="color: #1c83d2; padding: 0;text-decoration: underline">unsubscribe</unsubscribe>.<br><br>
-            Company Name &bull; 123 Fake Sreet, SpringField, Ohio 45506 US &bull; <span class="mobile_link">(123) 456-7890</span><br /><br />
-          </td>
-        </tr>
-			</table>
-      <!-- Single Column, Fluid Footer : END -->
-    </td>
-  </tr>
-</table>
-<!-- 100% wrapper : END -->
-<br>
-<br>
+      <!-- Three Column ==> Stacked Layout : BEGIN -->
+      <tr>
+        <td bgcolor="#ffffff" style="background-color: #ffffff; padding: 20px;border-bottom: 1px solid #ccc;">
+          <table border="0" cellpadding="0" cellspacing="0" class="columns-container">
+            <tr>
+              <td class="force-col" style="padding-right: 20px;" valign="top">
+                <table border="0" cellspacing="0" cellpadding="0" width="190" class="col-3">
+                  <tr>
+                    <td style="font-family: sans-serif; font-size: 12px; color: #444; line-height: 18px;">
+                      <img src="http://placehold.it/190x130/dddddd/bbbbbb" height="130" width="190" border="0" style="display: block;padding-bottom: 10px;" class="col-3-img-r">
+                      <a href="#" style="color:#1c83d2; font-size: 14px;font-weight:bold">Proactively Envision</a><br>
+                      Collaboratively administrate empowered markets via plug-and-play networks. Dynamically procrastinate B2C users after installed base benefits. Dramatically visualize customer directed convergence without revolutionary ROI.
+                    </td>
+                  </tr>
+                </table>
+              </td>
+              <td class="force-col" style="padding-right: 20px;" valign="top">
+                <table border="0" cellspacing="0" cellpadding="0" width="190" class="col-3">
+                  <tr>
+                    <td style="font-family: sans-serif; font-size: 12px; color: #444; line-height: 18px;">
+                      <img src="http://placehold.it/190x130/dddddd/bbbbbb" height="130" width="190" border="0" style="display: block;padding-bottom: 10px;" class="col-3-img-l">
+                      <a href="#" style="color:#1c83d2; font-size: 14px;font-weight:bold">Proactively Envision</a><br>
+                      Efficiently unleash cross-media information without cross-media value. Quickly maximize timely deliverables for real-time schemas. Dramatically maintain clicks-and-mortar solutions without functional solutions.
+                    </td>
+                  </tr>
+                </table>
+              </td>
+              <td class="force-col"  valign="top">
+                <table border="0" cellspacing="0" cellpadding="0" width="190" class="col-3" style="border-bottom: 0; padding-bottom: 0;">
+                  <tr>
+                    <td style="font-family: sans-serif; font-size: 12px; color: #444; line-height: 18px;">
+                      <img src="http://placehold.it/190x130/dddddd/bbbbbb" height="130" width="190" border="0" style="display: block;padding-bottom: 10px;" class="col-3-img-r">
+                      <a href="#" style="color:#1c83d2; font-size: 14px;font-weight:bold">Intellectual Capital</a><br>
+                      Completely synergize resource sucking relationships via premier niche markets. Professionally cultivate one-to-one customer service with robust ideas. Dynamically innovate resource-leveling customer service for state of the art customer service.
+                    </td>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+      <!-- Three Column ==> Stacked Layout : END -->
+
+      <!-- Wide Grid of Images ==> Tall Grid of Images : BEGIN -->
+      <tr>
+        <td style="border-bottom: 1px solid #ccc;">
+          <table cellspacing="0" cellpadding="0" border="0" width="100%" class="fluid">
+            <tr>
+              <td height="20" style="font-size: 0; line-height: 0;">&nbsp;</td>
+            </tr>
+            <tr>
+              <td style="text-align: center; line-height: 0; padding: 0 20px;" class="image-grid">
+                <img src="http://placehold.it/150/dddddd/bbbbbb&text=1" height="150" width="150" border="0" style="display: block;margin: auto;float: left;border: 1px solid #fff;" class="image-grid">
+                <img src="http://placehold.it/150/dddddd/bbbbbb&text=2" height="150" width="150" border="0" style="display: block;margin: auto;float: left;border: 1px solid #fff;" class="image-grid">
+                <img src="http://placehold.it/150/dddddd/bbbbbb&text=3" height="150" width="150" border="0" style="display: block;margin: auto;float: left;border: 1px solid #fff;" class="image-grid">
+                <img src="http://placehold.it/150/dddddd/bbbbbb&text=4" height="150" width="150" border="0" style="display: block;margin: auto;float: left;border: 1px solid #fff;" class="image-grid">
+                <img src="http://placehold.it/150/dddddd/bbbbbb&text=5" height="150" width="150" border="0" style="display: block;margin: auto;float: left;border: 1px solid #fff;" class="image-grid">
+                <img src="http://placehold.it/150/dddddd/bbbbbb&text=6" height="150" width="150" border="0" style="display: block;margin: auto;float: left;border: 1px solid #fff;" class="image-grid">
+                <img src="http://placehold.it/150/dddddd/bbbbbb&text=7" height="150" width="150" border="0" style="display: block;margin: auto;float: left;border: 1px solid #fff;" class="image-grid">
+                <img src="http://placehold.it/150/dddddd/bbbbbb&text=8" height="150" width="150" border="0" style="display: block;margin: auto;float: left;border: 1px solid #fff;" class="image-grid">
+              </td>
+            </tr>
+            <tr>
+              <td height="20" style="font-size: 0; line-height: 0;">&nbsp;</td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+      <!-- Wide Grid of Images ==> Tall Grid of Images : END -->
+
+      <!-- Three Column, Misc ==> Stacked Layout : BEGIN -->
+      <tr>
+        <td>
+          <table border="0" width="610" cellpadding="0" cellspacing="0" align="center" class="fluid">
+            <tr>
+              <td height="20" style="font-size: 0; line-height: 0;">&nbsp;</td>
+            </tr>
+            <tr>
+              <td class="hh-force-col-center" valign="top">
+                <img src="http://placehold.it/200/dddddd/bbbbbb" height="200" width="200" border="0" style="display: block;" class="hh-force-col-center">
+              </td>
+              <td valign="top" class="hh-force-col">
+                <table cellpadding="0" cellspacing="0" border="0" class="fluid">
+                  <tr>
+                    <td valign="top" style="font-family: sans-serif; font-size: 14px; line-height: 18px;color: #444; padding-left: 20px;" class="force-col">
+                      <strong style="font-size: 16px;">Administrate channels</strong>
+                      <br><br>
+                      Proactively envisioned multimedia based expertise and cross-media growth strategies. Seamlessly visualize quality intellectual capital without superior collaboration and idea-sharing.
+                    </td>
+                    <td valign="top" style="font-family: sans-serif; font-size: 12px; line-height: 18px;color: #888; padding-left: 20px;" class="force-col"><br><br>
+                      <em>Interactively procrastinate high-payoff content without backward-compatible data. Quickly cultivate optimal processes and tactical architectures. Completely iterate covalent strategic theme areas via accurate e-markets.</em>
+                    </td>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+            <tr>
+              <td height="20" style="font-size: 0; line-height: 0;">&nbsp;</td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+      <!-- Three Column, Misc ==> Stacked Layout : END -->
+
+  </table>
+  <!-- Email Container : END -->
+  
+  <!-- Footer : BEGIN -->
+  <table border="0" width="650" cellpadding="0" cellspacing="0" align="center" class="email-container">
+    <tr>
+      <td style="font-size: 0; line-height: 0; height: 20px;">&nbsp;</td>
+    </tr>
+    <tr>
+      <td style="text-align: center;padding: 20px;font-family: sans-serif; font-size: 12px; line-height: 18px;color: #888;">
+        If you no longer wish to receive these emails, you can <unsubscribe style="color: #1c83d2; padding: 0;text-decoration: underline">unsubscribe</unsubscribe>.<br>
+        Company Name &bull; 123 Fake Sreet, SpringField, Ohio 45506 US &bull; <span class="mobile_link">(123) 456-7890</span><br /><br /></td>
+      </td>
+    </tr>
+    <tr>
+      <td style="font-size: 0; line-height: 0; height: 20px;">&nbsp;</td>
+    </tr>
+  </table>
+  <!-- Footer : END -->
 </body>
 </html>
 
