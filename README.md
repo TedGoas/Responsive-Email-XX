@@ -15,7 +15,7 @@ This template *is not* meant to be used out of the box. Any email derived from t
 * Google Nexus (Android 4.3): Android Email, GMail
 
 ## Known Issues
-* **Gmail** strips out the &lt;style&gt; tag and displayed only inline styles. Since this disables media queries on small screens, Gmail displays a shrunk version of the desktop layout.
+* **Gmail** strips out the `<style>` tag and displayed only inline styles. Since this disables media queries on small screens, Gmail displays a shrunk version of the desktop layout.
 
 ## Tools and Resources
 * [Guide to CSS Support](http://www.campaignmonitor.com/css) from Campaign Monitor.
