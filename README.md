@@ -1,6 +1,6 @@
 # Responsive Layouts for Email
 
-A few layout ideas for HTML email that adapt to small screens and respond to breakpoints. It also includes a few tricks to a few HTML email gotchas in such as margins in Outlook, auto-detected links in Yahoo, and background images in Outlook.
+A few layout ideas for HTML email that adapt to small screens and respond to breakpoints. It also includes workarounds for a few HTML email gotchas in such as dodgy box model support in Hotmail, auto-detected links in Yahoo, and background images in Outlook.
 
 This template *is not* meant to be used out of the box. Any email derived from this code should always be tested.
 
@@ -9,13 +9,13 @@ This template *is not* meant to be used out of the box. Any email derived from t
 
 ## Tested In
 * Webmail: Hotmail, Gmail, Yahoo!, AOL
-* Desktop Mac: Apple Mail, Thunderbird, Outlook Mail (OSX)
+* Desktop Mac: Apple Mail, Thunderbird, Outlook Mail
 * Desktop Windows: Outlook (2007, 2010)
 * iPhone (4, 4S, 5), iPod (Retina), iPad (1, 2, 3, Mini): iOS Mail, GMail
 * Google Nexus (Android 4.3): Android Email, GMail
 
 ## Known Issues
-* **Gmail** strips out the `<style>` tag and displayed only inline styles. Since this disables media queries on small screens, Gmail displays a shrunk version of the desktop layout.
+* **Gmail** strips out the `<style>` tag and displays only inline styles. Since this disables media queries, Gmail displays a shrunk version of the desktop layout.
 
 ## Tools and Resources
 * [Guide to CSS Support](http://www.campaignmonitor.com/css) from Campaign Monitor.
@@ -27,4 +27,4 @@ This template *is not* meant to be used out of the box. Any email derived from t
 * [Placeholder Images](http://placehold.it/) by Brent Spore.
 
 ## Download, Fork, Commit.
-If you think you can make this better, please Download, Fork, & Commit. I'd love your see your ideas and make this as solid as can be.
+If you think you can make this better, please Download, Fork, & Commit. I'd love to work on this with a few folks and get this as solid as can be.
