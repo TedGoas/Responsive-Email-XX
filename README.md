@@ -1,6 +1,6 @@
 # Responsive Layouts for Email
 
-A few layout ideas for HTML email that adapt to small screens and respond to breakpoints. It also includes workarounds for a few HTML email gotchas in such as dodgy box model support in Hotmail, auto-detected links in Yahoo, and background images in Outlook.
+A few layout ideas for HTML email that adapt to small screens and respond to breakpoints. It also includes workarounds for a few HTML email gotchas in such as dodgy box model support in Hotmail, auto-detected links in Yahoo!, and background images in Outlook.
 
 This template *is not* meant to be used out of the box. Any email derived from this code should always be tested.
 
@@ -27,4 +27,4 @@ This template *is not* meant to be used out of the box. Any email derived from t
 * [Placeholder Images](http://placehold.it/) by Brent Spore.
 
 ## Download, Fork, Commit.
-If you think you can make this better, please Download, Fork, & Commit. I'd love to work on this with a few folks and get this as solid as can be.
+If you can make this better, please download, fork, and submit a pull request. I'd love to work on this with a few folks and get it as solid as can be.
