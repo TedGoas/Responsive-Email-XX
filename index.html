@@ -44,7 +44,7 @@
 			border-bottom: none !important;
 		}
         
-		@media screen and (max-width: 650px) {
+		@media screen and (max-device-width: 650px), screen and (max-width: 650px) {
 
 			/* Constrain email width for small screens */
 			table[class="email-container"] {
@@ -113,7 +113,7 @@
 		}
 
 		/* Rules prefixed with 'hh-' repeat much of what's above, but only on handheld screens. */
-		@media only screen and (max-width : 480px) {
+		@media screen and (max-device-width: 480px), screen and (max-width: 480px) {
 
 			img[class="hh-fluid"] {
 				width: 100% !important;
